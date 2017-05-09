@@ -2,8 +2,8 @@
   "name": "platformblue-data",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
-  "typings": "",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "prebuild": "rmdir /s /q .\\dist",

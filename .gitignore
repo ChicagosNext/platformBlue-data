@@ -1,5 +1,3 @@
 node_modules
-dist
 junit
 coverage
-__testData__
