@@ -59,7 +59,7 @@ export class EventStore {
 
     private initializeResultObject() {
         this.result = new Result();
-        this.result.Messages = new Array<string>;
+        this.result.Messages = new Array<string>();
     }
 
 

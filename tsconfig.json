@@ -5,9 +5,10 @@
         "noImplicitAny": false,
         "sourceMap": true,
         "jsx": "react",
-        "outDir": "build",
+        "outDir": "dist",
         "experimentalDecorators": true,
-        "rootDir": "src"
+        "rootDir": "src",
+        "declaration": true
     },
     "filesGlob": [
         "src/**/*.ts",
@@ -15,8 +16,9 @@
     ],
     "exclude": [
         "node_modules",
-        "build", 
-        "__tests__"
+        "dist", 
+        "__tests__",
+        "__testData__"
     ]
 
 }

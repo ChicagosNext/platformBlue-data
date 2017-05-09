@@ -3,8 +3,11 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.ts",
+  "typings": "",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prebuild": "rmdir /s /q .\\dist",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

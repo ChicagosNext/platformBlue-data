@@ -21,13 +21,15 @@ describe('Create an event', () => {
     });
 
     it('was successful', () => {
-        expect(valid.Error).toBe(false);
+        expect(eventStore.result.Error).toBe(false);
     });
 
     it('was unsuccessful', () => {
 
-        console.log(invalid.Message);
-        expect(invalid.Error).toBe(true);
+        //this won't work 
+
+        console.log(eventStore.result);
+        expect(eventStore.result.Error).toBe(true);
 
     });
 });
