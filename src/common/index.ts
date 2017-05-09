@@ -1,3 +1,3 @@
 export * from './Event';
 export * from './Audit';
-export * from './OpStatus';
+export * from './Result';

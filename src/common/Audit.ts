@@ -1,6 +1,6 @@
 export class Audit {
     CreatedBy: string;
-    Created: Date;
+    Created: string;
     ModifiedBy: string;
-    ModifiedDate: Date;
+    ModifiedDate: string;
 }
