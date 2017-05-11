@@ -11,7 +11,7 @@ describe('Create an event', () => {
 
 
     it('creates a unique ID', () => {
-        expect(validEvent.ID).toBeDefined();
+        expect(valid.Data.ID).toBeDefined();
     });
 
     it('populates audit info', () => {
@@ -21,15 +21,17 @@ describe('Create an event', () => {
     });
 
     it('was successful', () => {
-        expect(eventStore.result.Error).toBe(false);
+        expect(valid.Error).toBe(false);
     });
 
     it('was unsuccessful', () => {
 
-        //this won't work 
+        expect(invalid.Error).toBe(true);
+        expect(invalid.Messages.length > 0);
 
-        console.log(eventStore.result);
-        expect(eventStore.result.Error).toBe(true);
+        for(var i = 0; i < invalid.Messages.length; i++) {
+            console.log(invalid.Messages[i])
+        }
 
     });
 });

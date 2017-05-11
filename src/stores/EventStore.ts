@@ -3,64 +3,80 @@ import * as fb from 'firebase';
 import * as moment from 'moment';
 
 import { firebaseConfig } from '../config';
-import { Event, Result, Audit } from '../common';
+import { Event, EventManagementResult, Audit } from '../common';
 import { authStore } from './AuthStore';
-
 
 export class EventStore {
     constructor() {
        
     }
 
-    @observable
-    public result: Result = new Result();
+    // @observable
+    // public result: Result = new Result();
 
 
     @action
-    public async CreateEvent(event: Event) {
+    public CreateEvent(event: Event): EventManagementResult {
 
-        await this.initializeResultObject();       
+        let result = this.validateEvent(event);
 
+        if (result.Error == true) {
+            return result;                
+        }
+        
         if(authStore.currentUser != null) {
-
-            await this.validateEvent(event);
-
-
 
             event.AuditInfo = new Audit();
             event.AuditInfo.Created = moment().toISOString();
             authStore.db.ref('events/').set(JSON.stringify(event));
+            
+
+
+            return result;
         }
         else
         {
-            this.result.Error = true;
-            this.result.Messages.push('This operation is not permitted to anonymous users.')   
+            result.Error = true;
+            result.Messages.push('This operation is not allowed by anonymous users.'); 
+            return result;
         }
     }
 
     //Refactor into a utility class
     private getPushID() {
+        let pushID = authStore.db.ref().push();
+
 
     }
 
-    private validateEvent(event: Event) {
+    private validateEvent(event: Event): EventManagementResult {
+
+        let result = new EventManagementResult();
+        result.Error = false;
+        result.Messages = new Array<string>();
+
+
+
         if(moment(event.EventDate) <= moment())
         {
-            this.result.Error = true;
-            this.result.Messages.push('The event must occur in the future.');
+            result.Error = true;
+            result.Messages.push('The event must occur in the future.');
+        }
 
+        if(event.EventName.length === 0){
+            result.Error = true;
+            result.Messages.push('The event must have a name.')
         }
 
         if(event.EventDescription.length === 0){
-            this.result.Error = true;
-            this.result.Messages.push()
+            result.Error = true;
+            result.Messages.push('The event must have a description.')
         }
+
+        return result;
     }
 
-    private initializeResultObject() {
-        this.result = new Result();
-        this.result.Messages = new Array<string>();
-    }
+    
 
 
 }
