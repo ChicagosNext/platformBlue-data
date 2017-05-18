@@ -1,0 +1,1 @@
+{"version":3,"file":"FbApp.js","sourceRoot":"","sources":["../../src/config/FbApp.ts"],"names":[],"mappings":";;AAAA,+BAA+B;AAEpB,QAAA,cAAc,GAAI;IACzB,MAAM,EAAE,yCAAyC;IACjD,UAAU,EAAE,oCAAoC;IAChD,WAAW,EAAE,2CAA2C;IACxD,SAAS,EAAE,oBAAoB;IAC/B,aAAa,EAAE,gCAAgC;IAC/C,iBAAiB,EAAE,cAAc;CACpC,CAAC;AAEF,IAAI,KAAK,GAAG,EAAE,CAAC,aAAa,CAAC,sBAAc,CAAC,CAAC;AACpC,sBAAK"}

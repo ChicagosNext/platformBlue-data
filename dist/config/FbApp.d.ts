@@ -1,3 +1,4 @@
+import * as fb from 'firebase';
 export declare var firebaseConfig: {
     apiKey: string;
     authDomain: string;
@@ -6,3 +7,5 @@ export declare var firebaseConfig: {
     storageBucket: string;
     messagingSenderId: string;
 };
+declare let FbApp: fb.app.App;
+export { FbApp };

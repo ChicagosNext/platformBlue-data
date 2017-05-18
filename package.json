@@ -28,6 +28,7 @@
     "@types/jest": "^19.2.3",
     "@types/moment": "^2.13.0",
     "jest": "^20.0.1",
+    "jest-cli": "^20.0.1",
     "jest-junit": "^1.5.1",
     "ts-jest": "^20.0.3",
     "typescript": "^2.3.2"
@@ -45,7 +46,10 @@
     ],
     "collectCoverage": true,
     "coverageDirectory": "<rootDir>\\coverage",
-    "testResultsProcessor": "./node_modules/jest-junit"
+    "testResultsProcessor": "./node_modules/jest-junit",
+    "globals": {
+      "__TS_CONFIG__": "tsconfig.alternate.json"
+    }
   },
   "jest-junit": {
     "output": "./junit/junit.xml"

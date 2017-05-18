@@ -1,9 +1,10 @@
 import * as fb from 'firebase';
 export declare class AuthStore {
     constructor();
-    db: fb.database.Database;
+    app: fb.app.App;
     currentUser: fb.UserInfo;
-    GetDbRef(): void;
+    init(): void;
+    signInAnon(): void;
 }
 declare let authStore: AuthStore;
 export { authStore };

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "inlineSourceMap": true,
+        "jsx": "react",
+        "outDir": "dist1",
+        "experimentalDecorators": true,
+        "declaration": true
+    },
+    "filesGlob": [
+        "src/**/*.ts",
+        "src/**/*.tsx"        
+    ],
+    "exclude": [
+        "node_modules",
+        "dist", 
+        "__tests__",
+        "__testData__"
+    ]
+
+}
