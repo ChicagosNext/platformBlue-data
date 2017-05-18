@@ -3,14 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // import { Event, EventManagementResult, Audit } from '../common';
 // import { FbApp } from '../config';
 const _1 = require("./");
+var authStore = new _1.AuthStore();
 class EventStore {
     constructor() {
-        _1.authStore.signInAnon();
+        authStore.signInAnon();
         this.FirebasePath = 'Events/';
     }
     CreateEvent() {
-        if (_1.authStore.currentUser != null) {
-            _1.authStore.currentUser.displayName;
+        if (authStore.currentUser != null) {
+            authStore.currentUser.displayName;
         }
         else {
             console.log('Must be logged on');

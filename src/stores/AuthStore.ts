@@ -14,41 +14,41 @@ var firebaseConfig =  {
 
 export class AuthStore {
     constructor() {
-        this.init();
         this.app = null;
         this.currentUser = null;
+        this.init();
     }
 
     @observable
     public app: fb.app.App;
 
     @observable
-    public currentUser: fb.UserInfo;
+    public database: fb.database.Database;
 
-    init() {
-       this.app = fb.initializeApp(firebaseConfig);
-       fb.auth().onAuthStateChanged( (user: fb.User) => {
+    @observable
+    public currentUser: fb.User;
+
+    async init() {
+        
+        this.app = await fb.initializeApp(firebaseConfig);
+        this.database = await fb.database();
+
+        fb.auth().onAuthStateChanged( (user: fb.User) => {
             if(user) {
-                console.log(user.isAnonymous + ' user')
+                console.log('user is anon '+ user.isAnonymous);
                 this.currentUser = user;
-               
             }
             else {
                 console.log('no user');
                 // this.currentUser = user;
                 // console.log(this.currentUser.displayName);
             };
-        })
+        });
     };
 
     @action
-    signInAnon() {
-        fb.auth().signInAnonymously().then((a) => {
-
-            // console.log(this.currentUser.displayName);
-            return a;
-            
-        }).catch((err) =>{
+    async signInAnon() {
+        await fb.auth().signInAnonymously().catch((err) =>{
             console.log('err');
             console.log(err.message);
         });
@@ -57,3 +57,4 @@ export class AuthStore {
 
 let authStore = new AuthStore();
 export { authStore };
+
