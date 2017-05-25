@@ -5,14 +5,6 @@ import * as moment from 'moment';
 
 describe('Create an event', () => {
 
-    it('instantiates an event object', () => {
-
-    });
-
-    it('fails to instantiate an event object', () => {
-
-    });
-
     it('passes validation', () => {
 
     });
