@@ -37,7 +37,6 @@ export class EventStore {
                 
                 
                 
-                this.eventRef.update({e: 'hi there'});
             }
             else {
 
